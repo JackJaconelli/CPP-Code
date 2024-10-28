@@ -1,0 +1,46 @@
+#include <iostream>
+#include <fstream>
+#include <cstdlib>
+// Input to a file name using OS 
+int main()
+{
+    using namespace std;
+    char inFileName[16], outFileName[16];
+    ifstream inStream;
+    ofstream outStream;
+
+    cout << "I will sum three numbers taken from an input\n"
+    << "file and write the sum to an output file. \n";
+    
+    std::cout<< "Enter the input file name (maxium of 15 characters):\n";
+    std::cin>> inFileName;
+    cout << "Enter the output file name (Maxium of 15 characters):\n";
+    std::cin>> outFileName;
+    cout << "I will read numbers from the file " 
+    << inFileName << " and\n"
+    << "place the sum in the file "
+    << outFileName << "\n";
+
+    inStream.open(inFileName);
+    if (inStream.fail ())
+    {
+        cout << "output file opening failed.\n";
+        exit(1);
+    }
+    outStream.open(outFileName);
+    if (outStream.fail ( ))
+    {
+        cout<< "Output file opening failed.\n";
+    }
+
+    int first, second, third;
+    inStream >> first >> second >> third;
+    outStream << "the sum of the first 3\n"
+    << "numbers in " << inFileName << "\n"
+    << "is " << (first + second + third) << "\n";
+inStream.close ( );
+outStream.close ( );
+
+cout << "End of program.\n";
+return 0;
+}
